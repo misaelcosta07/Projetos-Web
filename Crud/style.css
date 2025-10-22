@@ -1,7 +1,20 @@
+:root {
+
+  --cor-principal:;
+  --fonte-principal:  
+  font-family: 'Roboto', sans-serif;
+  --cor-principal:#F27405;
+  --cor-button: #143D73;
+  --cor-detalhes:rgb(231, 224, 224);
+
+}
+
+
+
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #555252c9;
+  background-color:var(--cor-detalhes);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +30,7 @@ body {
 }
 
 h2{
+  color: var(--cor-principal);
 text-align: center;
 }
 
@@ -30,16 +44,30 @@ font-size: smaller;
 }
 
 form#formcadastro{
-text-align: center;
+ display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza inputs e botões horizontalmente */
+  gap: 10px; /* espaçamento entre campos */
 }
-form#formlogin{
 
-    
+/* Centraliza o formulário de login
+   - Seleciona tanto form#login quanto form#formlogin (compatibilidade com o HTML existente)
+   - Usa flexbox para alinhar os elementos verticalmente e centralizar horizontalmente
+*/
+form#login,
+form#formlogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza inputs e botões horizontalmente */
+  gap: 10px; /* espaçamento entre campos */
 }
+
+
 button {
+
 width: 50%;
 padding: 8px;
-background: #9e57c1;
+background: var(--cor-button);
 color: white;
 border: none;
 border-radius: 24px;
@@ -56,7 +84,7 @@ button.entrar{
     width: 200px;
     cursor: pointer;
 }
-button.voltar{
+button.cadastro{
     display: block;
     text-align: center;
     padding: 10px;
@@ -64,3 +92,7 @@ button.voltar{
     width: 200px;
     cursor: pointer;
 }
+
+/* 
+aqui vou usar filter: blur() - deixa a imaem do fundo desfocada. 
+*/
