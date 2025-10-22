@@ -18,20 +18,45 @@
             <input type="email" id="LoginEmail" placeholder="E-mail" required>
             <input type="password" id="loginsenha" placeholder="Senha" required>
 
-            <button type="submit">Continuar</button>
+            <button type="submit" >Continuar</button> 
             <button type="return" class="cadastro" onclick="window.location.href='cadastro.html'">Criar Conta</button>
 
         </form>
          </div>
 
+         <div id="imgfundo" class="background">
+            <img src="imagem/foto-carrodeluxo.jpg" alt="carro de luxo" srcset="">
+         </div>
 
         
-      <script>
-            function logar() {
-      document.querySelector('.background').classList.add('logado');
-    }
+         <script>
+            // Torna a imagem de fundo nítida quando o formulário for submetido (pequeno efeito antes do submit)
+            document.addEventListener('DOMContentLoaded', function () {
+               const form = document.getElementById('formlogin');
+               const bg = document.querySelector('#imgfundo');
 
-      </script>
+               // Caso a div não tenha a classe .background (compatibilidade), adiciona-a
+               if (bg && !bg.classList.contains('background')) bg.classList.add('background');
+
+               if (form && bg) {
+                  form.addEventListener('submit', function (e) {
+                     // evita salto brusco e mostra a imagem nítida antes de submeter
+                     e.preventDefault();
+                     bg.classList.add('logado');
+                     // pequeno atraso para o efeito ficar visível antes do envio
+                     setTimeout(function () { form.submit(); }, 300);
+                  });
+               }
+            });
+
+            // Função legacy usada anteriormente — mantém compatibilidade
+            function logar() {
+               const el = document.querySelector('.background');
+               if (el) el.classList.add('logado');
+            }
+
+         
+         </script>
 
 
 
